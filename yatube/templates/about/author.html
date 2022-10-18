@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}Об авторе проекта{% endblock %}
+{% block content %}
+  <div class="row">
+    <div class="col-sm-6">
+      <div class="card text-center">
+        <div class="card-header">
+          Привет, Я - Олег<br>Cоавтор этого сайта
+        </div>
+        <div class="card-body">
+          <img 
+            class="card-img-top" 
+            src="{% static 'img/author.png' %}" 
+            alt="Card image cap" 
+            style="max-height: 300px; width: auto; border-radius: 12px;"
+          >
+          <p></p>
+          <h5 class="card-title">Тут я размещу информацию о себе, используя свои умения верстать.</h5>
+          <p class="card-text">Картинки, блоки, элементы бустрап. А может быть, просто напишу несколько абзацев текста.</p>
+          <a href="https://github.com/discoveryline" class="btn btn-primary">Go to GitHub</a>
+        </div>
+        <div class="card-footer text-muted"></div>
+      </div>
+    </div>
+    <div class="col-sm-6">
+      <div class="card text-center">
+        <div class="card-header">
+          Привет, Я - ЯП<br>Cоавтор этого сайта
+        </div>
+        <div class="card-body">
+          <img 
+            class="card-img-top" 
+            src="{% static 'img/logo.png' %}" 
+            alt="Card image cap" 
+            style="height: 300px; width: auto; border-radius: 12px;"
+          >
+          <p></p>
+          <h5 class="card-title">Тут я размещу информацию о себе, используя свои умения верстать.</h5>
+          <p class="card-text">Картинки, блоки, элементы бустрап. А может быть, просто напишу несколько абзацев текста..</p>
+          <a href="https://practicum.yandex.ru/" class="btn btn-primary">Go to Yandex</a>
+        </div>
+        <div class="card-footer text-muted"></div>
+      </div>
+    </div>
+  </div>
+{% endblock %}
