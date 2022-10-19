@@ -1,8 +1,10 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, redirect
 
 from django.core.paginator import Paginator
 
 from .models import Group, Post, User
+
+from .forms import PostForm
 
 
 NUMBER_POSTS_PER_PAGE = 10
@@ -19,7 +21,6 @@ def index(request):
     context = {
         'page_obj': page_obj,
     }
-
     return render(request, 'posts/index.html', context)
 
 
@@ -69,3 +70,17 @@ def post_detail(request, post_id):
         'author_posts_count': author_posts_count,
     }
     return render(request, 'posts/post_detail.html', context)
+
+def post_create(request):
+    if request.method == 'POST':
+        form = PostForm(request.POST)
+        if form.is_valid():
+            post = form.save(commit=False)
+            post.author = request.user
+            post.save()
+            return redirect('/profile/' + request.user.username)
+        
+        return render(request, 'posts/create_post.html', {'form': form})
+
+    form = PostForm()
+    return render(request, 'posts/create_post.html', {'form': form}) 

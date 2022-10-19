@@ -11,14 +11,15 @@
   {% for post in page_obj %}
     <article>
       <ul>
-        <li>
+        {% comment %} <li>
           Автор: {{ post.author.get_full_name }}
         </li>
         <li>
           <a href="{% url 'posts:profile' post.author.username %}">
             все посты пользователя
           </a>
-        </li>
+        </li> 
+        {% endcomment %}
         <li>
           Дата публикации: {{ post.pub_date|date:"d E Y" }}
         </li>
