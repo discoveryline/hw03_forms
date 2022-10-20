@@ -1,6 +1,12 @@
 {% extends "base.html" %}
 
-{% block title %}Новый пост{% endblock %}
+{% block title %}
+  {% if is_edit %}
+    Редактирование поста
+  {% else %}
+    Новый пост
+  {% endif %}
+{% endblock %}
 
 {% block content %}
   <div class="container py-5"> 
@@ -8,7 +14,11 @@
       <div class="col-md-8 p-5">
         <div class="card">
           <div class="card-header">
-            Новый пост
+            {% if is_edit %}
+              Редактирование поста
+            {% else %}
+              Новый пост
+            {% endif %}
           </div>
           <div class="card-body">
             {% include 'includes/forms/fields_if_form_errors.html' %}
@@ -21,7 +31,11 @@
               {% include 'includes/forms/fields_in_post_form.html' %}
               <div class="col-md-6 offset-md-4">
                 <button type="submit" class="btn btn-primary">
-                  Сохранить
+                  {% if is_edit %}
+                    Сохранить
+                  {% else %}
+                    Добавить
+                  {% endif %}
                 </button>
               </div>
             </form>
