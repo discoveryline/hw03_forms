@@ -17,9 +17,7 @@
     </title>
   </head>
   <body>
-    <header>
-      {% include 'includes/header.html' %}
-    </header>
+    {% include 'includes/header.html' %}
     <main>
       <div class="container py-5">
         {% block content %}
@@ -27,8 +25,6 @@
         {% endblock %}
       </div>
     </main>
-    <footer class="border-top text-center py-3">
-      {% include 'includes/footer.html' %}
-    </footer>
+    {% include 'includes/footer.html' %}
   </body>
 </html>

@@ -6,7 +6,7 @@
 
 {% block content %}  
   <h1>Все посты пользователя {{ author.get_full_name }} </h1>
-  <h3>Всего постов: {{ author_posts_count }} </h3>
+  <h3>Всего постов: {{ author.posts.count }} </h3>
   <br>
   {% for post in page_obj %}
     <article>
@@ -31,7 +31,7 @@
     </article>
     {% if post.group %}   
       <a href="{% url 'posts:group_list' post.group.slug %}">
-        все записи группы "{{ post.group }}"
+        все записи группы "{{ post.group.title }}"
       </a>
     {% endif %}
     {% if not forloop.last %}<hr>{% endif %}
